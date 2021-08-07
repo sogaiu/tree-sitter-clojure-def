@@ -5,7 +5,8 @@
 [tree-sitter-clojure](https://github.com/sogaiu/tree-sitter-clojure) doesn't
 support "higher-level" constructs like `def` or `defn` for a variety of
 reasons.  This repository demonstrates a grammar which "inherits from"
-tree-sitter-clojure showing how one might support `def` and `defn`.
+tree-sitter-clojure showing how one might support `def` and `defn`.  It's
+still very much an experiment.
 
 ## Status
 
