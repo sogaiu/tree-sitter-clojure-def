@@ -2,21 +2,6 @@
   "name": "tree-sitter-clojure-def",
   "version": "0.0.1",
   "description": "Clojure grammar for tree-sitter with def extensions",
-  "main": "bindings/node",
-  "scripts": {
-    "build": "npx tree-sitter generate && npx node-gyp build",
-    "test": "npx tree-sitter test"
-  },
-  "author": "",
-  "license": "",
-  "dependencies": {
-    "nan": "2.14.2",
-    "web-tree-sitter": "0.19.1",
-    "tree-sitter-clojure": "https://github.com:sogaiu/tree-sitter-clojure.git#c00293fb0cd5ce3a7005c0601e9b546c1ea73094"
-  },
-  "devDependencies": {
-    "tree-sitter-cli": "^0.19.4"
-  },
   "tree-sitter": [
     {
       "scope": "source.clojure",
