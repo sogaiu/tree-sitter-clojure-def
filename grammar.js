@@ -1,4 +1,4 @@
-const clojure = require("tree-sitter-clojure/grammar");
+const clojure = require("../tree-sitter-clojure/grammar");
 
 module.exports = grammar(clojure, {
   name: 'clojure_def',

@@ -12,66 +12,19 @@ still very much an experiment.
 
 Subject to change, grammar still evolving.
 
-## Prerequisites
+## Getting Started
 
-* node >= 12 (nvm recommended) -- recently tested 12.18.0
+This repository and tree-sitter-clojure should be cloned as sibling
+directories.
 
-## Fine Print
-
-`node-gyp` (tool for compiling native addon modules for Node.js) may
-fail on machines upgraded to macos Catalina (or later?). [This
-document](https://github.com/nodejs/node-gyp/blob/master/macOS_Catalina.md)
-may help cope with such a situation.
-
-## Initial Setup
-
-Suppose typical development sources are stored under `~/src`.
+Suppose source code is stored under `~/src`, then:
 
 ```
-# clone repository
 cd ~/src
+git clone https://github.com/sogaiu/tree-sitter-clojure
 git clone https://github.com/sogaiu/tree-sitter-clojure-def
 cd tree-sitter-clojure-def
-
-# ensure tree-sitter-cli is avaliable as a dev dependency
-npm install --save-dev tree-sitter-cli
-
-# create `src` and populate with tree-sitter .c goodness
-npx tree-sitter generate
-
-# create `node_modules` and populate with dependencies
-npm install
-
-# create `build` and populate appropriately
-npx node-gyp configure
-
-# create `build/Release` and build `tree_sitter_clojure_def_binding.node`
-npx node-gyp rebuild
+tree-sitter generate --abi 13 --no-bindings
+tree-sitter parse samples/*
 ```
 
-## Grammar Development
-
-Hack on grammar and test.
-
-```
-# edit grammar.js using some editor
-
-# rebuild tree-sitter stuff
-npx tree-sitter generate && \
-npx node-gyp rebuild
-
-# try parsing, assuming some relevant source in `sample.clj`
-npx tree-sitter parse sample.clj
-
-# find errors and loop back to edit step above...
-```
-
-## Measure Performance
-
-```
-# single measurement
-npx tree-sitter parse --time sample.clj
-
-# mutliple measurements with `multitime`
-multitime -n10 -s1 npx tree-sitter parse --time --quiet sample.clj
-```
